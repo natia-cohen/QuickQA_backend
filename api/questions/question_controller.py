@@ -1,14 +1,13 @@
-from flask import Blueprint, request, jsonify
-from services.question_service import QuestionService
+from flask import request, jsonify
+from api.questions.question_service import QuestionService
 
-question_bp = Blueprint("question", __name__)
+class QuestionController:
+    @staticmethod
+    def add_question():
+        data = request.json
+        question = QuestionService.add_question(data)
+        return jsonify(question), 201
 
-@question_bp.route("/questions", methods=["POST"])
-def add_question():
-    data = request.json
-    question = QuestionService.add_question(data)
-    return jsonify(question), 201
-
-@question_bp.route("/questions", methods=["GET"])
-def get_questions():
-    return jsonify(QuestionService.get_questions())
+    @staticmethod
+    def get_questions():
+        return jsonify(QuestionService.get_questions()), 200

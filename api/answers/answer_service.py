@@ -1,32 +1,25 @@
+from bson import ObjectId
 from database import db
-from bson import ObjectId  
 
+ד
 class AnswerService:
     @staticmethod
-    def add_answer(question_id, answer):
+    def add_answer(question_id, answer_text):
         try:
-            object_id = ObjectId(question_id)  
-        except:
-            return False 
+            question = db["questions"].find_one({"_id": ObjectId(question_id)})
 
-        question = db["questions"].find_one({"_id": object_id})
-        if question:
+            if not question:
+                return False  
+
             db["questions"].update_one(
-                {"_id": object_id},
-                {"$push": {"answers": answer}}
+                {"_id": ObjectId(question_id)},
+                {"$push": {"answers": answer_text}}
             )
+
+    
             return True
-        return False
+        except Exception as e:
+            return False
 
-    @staticmethod
-    def get_answers(question_id):
-   
-        try:
-            object_id = ObjectId(question_id)
-        except:
-            return None  
 
-        question = db["questions"].find_one({"_id": object_id})
-        if question:
-            return question.get("answers", [])
-        return None
+
