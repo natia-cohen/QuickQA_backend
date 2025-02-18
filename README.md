@@ -9,7 +9,7 @@ This is the backend for QuickQA, a real-time Q&A application where users can pos
 ###  **Clone the Repository**
 Run the following commands:
 ```sh
- git clone <repository-url>
+ git clone https://github.com/natia-cohen/QuickQA_backend.git
  cd QuickQA/backend
 ```
 
