@@ -13,8 +13,6 @@ Run the following commands:
  cd QuickQA/backend
 ```
 
----
-
 ###  **Backend Setup (Flask + MongoDB)**
 #### ** Prerequisites**
 - Python 3.8+
