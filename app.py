@@ -15,7 +15,10 @@ from api.answers.answer_routes import answer_bp
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app) 
+
+
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "http://127.0.0.1:5000", "http://127.0.0.1:8000"]}})
+
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb://localhost:27017/realtime_qa")
