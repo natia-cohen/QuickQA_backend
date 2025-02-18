@@ -1,7 +1,5 @@
 from bson import ObjectId
 from database import db
-
-ד
 class AnswerService:
     @staticmethod
     def add_answer(question_id, answer_text):
