@@ -14,7 +14,7 @@ Run the following commands:
 ```
 
 ###  **Backend Setup (Flask + MongoDB)**
-#### ** Prerequisites**
+#### **Prerequisites**
 - Python 3.8+
 - MongoDB installed and running
 - Flask and dependencies installed
