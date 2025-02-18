@@ -8,6 +8,7 @@ from flask_cors import CORS
 from flask_pymongo import PyMongo
 
 
+
 from api.questions.question_routes import question_bp
 from api.answers.answer_routes import answer_bp
 
@@ -26,4 +27,5 @@ app.register_blueprint(question_bp)
 app.register_blueprint(answer_bp)
 
 if __name__ == "__main__":
+   app.run(debug=True)
    app.run(debug=True)
